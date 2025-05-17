@@ -1,11 +1,7 @@
 # E-commerce Admin API
 
 ## Overview
-A FastAPI-based backend to power an admin dashboard for e-commerce insights including:
-- Product management
-- Sales tracking
-- Inventory status
-- Revenue reporting (daily/weekly/monthly/yearly)
+A FastAPI-based backend to power an admin dashboard for e-commerce insights.
 
 ## 🚀 Tech Stack
 - Python + FastAPI
