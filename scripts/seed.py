@@ -6,20 +6,20 @@ from app.models.product import Product
 from app.models.sale import Sale
 from app.models.inventory import Inventory
 
-# Create all tables
+
 Base.metadata.create_all(bind=engine)
 
 def seed():
     db: Session = SessionLocal()
 
     try:
-        # Clear existing data
+        
         db.query(Sale).delete()
         db.query(Inventory).delete()
         db.query(Product).delete()
         db.commit()
 
-        # Add products
+       
         products = [
             Product(name="Apple iPhone 14", description="Latest iPhone model", category="Electronics", price=999.99),
             Product(name="Samsung Galaxy S23", description="New Galaxy phone", category="Electronics", price=899.99),
@@ -30,7 +30,7 @@ def seed():
         db.add_all(products)
         db.commit()
 
-        # Add inventory and sales
+        
         for product in products:
             quantity = random.randint(10, 100)
             db.add(Inventory(product_id=product.id, quantity_in_stock=quantity))

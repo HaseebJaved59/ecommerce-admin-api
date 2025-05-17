@@ -46,7 +46,7 @@ uvicorn app.main:app --reload
 ### Products
 - `GET /products` — List all products
 - `POST /products` — Create a new product
-= `GET /products/{id}` — Get product by product id
+- `GET /products/{id}` — Get product by product id
 
 ### Inventory
 - `GET /inventory/status` — View current stock
