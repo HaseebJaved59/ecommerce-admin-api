@@ -26,23 +26,6 @@ def create(sale: SaleCreate, db: Session = Depends(get_db)):
 def read_all(db: Session = Depends(get_db)):
     return crud_sale.get_sales(db)
 
-
-@router.get("/filter", response_model=List[SaleRead])
-def filter_sales(
-    start_date: Optional[datetime] = Query(None),
-    end_date: Optional[datetime] = Query(None),
-    product_id: Optional[int] = Query(None),
-    db: Session = Depends(get_db)
-):
-    query = db.query(Sale)
-    if product_id:
-        query = query.filter(Sale.product_id == product_id)
-    if start_date:
-        query = query.filter(Sale.sale_date >= start_date)
-    if end_date:
-        query = query.filter(Sale.sale_date <= end_date)
-    return query.all()
-
 @router.get("/summary")
 def sales_summary(
     db: Session = Depends(get_db),
